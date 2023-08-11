@@ -13,6 +13,8 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusDirection
@@ -21,27 +23,35 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.lglez.messenger.R
 import com.lglez.messenger.core.presentation.composables.RoundedButton
 import com.lglez.messenger.core.presentation.composables.TextFieldElevated
 
 @Composable
-fun SignInScreen(navController: NavController) {
+fun SignInScreen(
+    navController: NavController,
+    viewModel: SignInViewModel = hiltViewModel()
+) {
+    val uiState by viewModel.uiState.collectAsState()
     Scaffold() {
         SignInForm(
             modifier = Modifier
                 .padding(it)
                 .fillMaxSize(),
-            uiState = SignInState()
-        )
+            uiState = uiState
+        ){event ->
+            viewModel.onEvent(event)
+        }
     }
 }
 
 @Composable
 fun SignInForm(
     modifier: Modifier,
-    uiState : SignInState
+    uiState : SignInState,
+    onEvent : (SigInEvent) -> Unit
 ) {
     
     val currentFocus = LocalFocusManager.current
@@ -70,7 +80,7 @@ fun SignInForm(
                 .padding(bottom = 10.dp)
                 .fillMaxWidth(),
             value = uiState.email.value,
-            onValueChange = {},
+            onValueChange = { onEvent(SigInEvent.EmailChange(it)) },
             label = { Text(text = stringResource(id = R.string.email_label)) },
             placeholder = { Text(text = stringResource(id = R.string.email_placeholder)) },
             keyboardOptions = KeyboardOptions(
@@ -87,7 +97,7 @@ fun SignInForm(
                 .padding(bottom = 50.dp)
                 .fillMaxWidth(),
             value = uiState.password.value,
-            onValueChange = {},
+            onValueChange = { onEvent(SigInEvent.PasswordChange(it)) },
             label = { Text(text = stringResource(id = R.string.password_label)) },
             placeholder = { Text(text = stringResource(id = R.string.password_placeholder)) },
             keyboardOptions = KeyboardOptions(
@@ -103,7 +113,7 @@ fun SignInForm(
             modifier = Modifier.fillMaxWidth(),
             content = { Text(text = stringResource(id = R.string.signin_label)) }
         ) {
-            
+            onEvent(SigInEvent.SignIn)
         }
         
 
