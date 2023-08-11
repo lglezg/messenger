@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "426882957151",
+    "project_id": "taller-android-4392e",
+    "storage_bucket": "taller-android-4392e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:426882957151:android:b29d37ed6a283f80f540ea",
+        "android_client_info": {
+          "package_name": "com.lglez.messenger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "426882957151-aidbrupvnit4no7ja9aas6r64m9ifc2e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD81mzfuiTrPmz_xv02RLFL6iL0okycJY0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "426882957151-aidbrupvnit4no7ja9aas6r64m9ifc2e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

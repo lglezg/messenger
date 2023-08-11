@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">messenger</string>
+    <string name="signup_label">Registrate</string>
+    <string name="signin_label">Iniciar sesión</string>
+    <string name="welcome_label">Bienvenido</string>
+    <string name="required_label">Este campo es requerido</string>
+    <string name="email_label">Correo</string>
+    <string name="email_placeholder">Escribe tu correo</string>
+    <string name="email_error_label">El correo electrónico que proporcionaste no es válido, \'ejemplo@dominio.com\'</string>
+    <string name="name_label">Nombre</string>
+    <string name="name_placeholder">Escribe tu nombre de usuario</string>
+    <string name="name_error_label">El nombre que proporcionaste no es válido, debe contener letras, numeros, puntos y guines medios</string>
+    <string name="password_label">Contraseña</string>
+    <string name="password_placeholder">........</string>
+    <string name="confirm_password_label">Confirma tu contraseña</string>
+    <string name="confirm_password_error_label">La contraseña no coincide</string>
+    <string name="finish_label">Finalizar</string>
+    <string name="home_screen_label">Inicio</string>
+</resources>
